@@ -1,11 +1,11 @@
 <?php
   session_start();
   $count = 0;
-  // connecto database
+  // connect database
   
   $title = "Index";
-  require_once "./template/header.php";
-  require_once "./functions/database_functions.php";
+  include_once "./template/header.php";
+  include_once "./functions/database_functions.php";
   $conn = db_connect();
   $row = select4LatestBook($conn);
 ?>
@@ -22,5 +22,5 @@
       </div>
 <?php
   if(isset($conn)) {mysqli_close($conn);}
-  require_once "./template/footer.php";
+  include_once "./template/footer.php";
 ?>
