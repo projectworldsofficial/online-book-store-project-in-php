@@ -29,7 +29,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.5 #Github Action version
       with:
-        project: 00153967_TEST3 # <-- Insert Checkmarx SAST Project Name
+        project: 00153967_TEST4 # <-- Insert Checkmarx SAST Project Name
         team: /CxServer
         checkmarx_url: https://9525-103-241-82-75.ngrok.io # To be stored in GitHub Secrets.
         checkmarx_username: Admin@cx # To be stored in GitHub Secrets.
@@ -37,5 +37,5 @@ jobs:
         checkmarx_client_secret: 014DF517-39D1-4453-B7B3-9930C563627C # To be stored in GitHub Secrets.
         break_build: false
         scanners: sast
-        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filterSeverity --cx-flow.filterCategory  --checkmarx.disable-clubbing=true
+        params: --checkmarx.exclude-folders="*Talking*" --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filterSeverity --cx-flow.filterCategory  --checkmarx.disable-clubbing=true
    
